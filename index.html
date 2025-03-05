@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<div id="google_translate_element"></div>
+<script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'auto', includedLanguages: 'en,vi,fr,ja,zh', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+            'google_translate_element'
+        );
+    }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BẠO LỰC MẠNG: LỜI NÓI ẢO NỖI ĐAU THẬT</title>
+    <style>
+        /* Reset CSS cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Thanh ngang trên cùng */
+        #top-bar {
+            background: white; /* Nền trắng */
+            color: black; /* Chữ màu đen */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between; /* Các phần tử cách đều nhau */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd; /* Đường viền dưới */
+        }
+
+        /* Ngày tháng ở bên trái */
+        .topbar-date {
+            font-weight: bold;
+        }
+
+        /* Phần chọn ngôn ngữ */
+        .topbar-lang {
+            display: flex;
+            gap: 15px; /* Khoảng cách giữa các ngôn ngữ */
+        }
+
+        .topbar-lang a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .topbar-lang img {
+            width: 20px;
+            height: 14px;
+            margin-right: 8px; /* Khoảng cách giữa cờ và chữ */
+            border-radius: 2px;
+        }
+
+        .topbar-lang a:hover {
+            background: #f0f0f0; /* Hiệu ứng hover */
+        }
+
+        /* Phần nội dung trang */
+        .content {
+            padding: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh ngang trên cùng -->
+    <div id="top-bar">
+        <!-- Ngày tháng -->
+        <div class="topbar-date" id="current-date">
+            <!-- Ngày tháng sẽ tự động cập nhật -->
+        </div>
+
+        <!-- Chọn ngôn ngữ -->
+        <div class="topbar-lang">
+            <a onclick="changeLanguage('vi')" id="lang-vi">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="VN">
+                <span id="text-vi">Tiếng Việt</span>
+            </a>
+            <a onclick="changeLanguage('en')" id="lang-en">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" alt="EN">
+                <span id="text-en">English</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Nội dung trang -->
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dải nền kéo dài</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .full-width-section {
+            background-color: #2c3e50; /* Xanh tím than */
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            width: 100vw; /* Chiều rộng toàn màn hình */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="full-width-section">
+        <h1 id="heading" class="highlight">BẠO LỰC MẠNG: LỜI NÓI ẢO NỖI ĐAU THẬT </h1>
+    </div>
+
+</body>
+
+    <!-- Script cập nhật ngày tháng & đổi ngôn ngữ -->
+    <script>
+        function updateDate(lang = 'vi') {
+            const dateElement = document.getElementById("current-date");
+            const today = new Date();
+
+            const optionsVI = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+            const optionsEN = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+
+            if (lang === 'en') {
+                const days = {
+                    "Chủ Nhật": "Sunday", "Thứ Hai": "Monday", "Thứ Ba": "Tuesday", "Thứ Tư": "Wednesday",
+                    "Thứ Năm": "Thursday", "Thứ Sáu": "Friday", "Thứ Bảy": "Saturday"
+                };
+
+                const months = {
+                    "Tháng Một": "January", "Tháng Hai": "February", "Tháng Ba": "March", "Tháng Tư": "April",
+                    "Tháng Năm": "May", "Tháng Sáu": "June", "Tháng Bảy": "July", "Tháng Tám": "August",
+                    "Tháng Chín": "September", "Tháng Mười": "October", "Tháng Mười Một": "November", "Tháng Mười Hai": "December"
+                };
+
+                let dateStr = today.toLocaleDateString('vi-VN', optionsVI);
+                Object.keys(days).forEach(vn => {
+                    dateStr = dateStr.replace(vn, days[vn]);
+                });
+                Object.keys(months).forEach(vn => {
+                    dateStr = dateStr.replace(vn, months[vn]);
+                });
+
+                dateElement.textContent = dateStr;
+            } else {
+                dateElement.textContent = today.toLocaleDateString('vi-VN', optionsVI);
+            }
+        }
+
+        updateDate(); // Gọi hàm cập nhật khi trang tải
+
+        const translations = {
+            vi: {
+                heading: "BẠO LỰC MẠNG: LỜI NÓI ẢO NỖI ĐAU THẬT ",                       
+                langVi: "Tiếng Việt",
+                langEn: "English"
+            },
+            en: {
+                heading: "CYBERBULLYING: VIRTUAL WORDS REAL PAIN",
+                langVi: "Vietnamese",
+                langEn: "English"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById("heading").textContent = translations[lang].heading;
+            document.getElementById("description").textContent = translations[lang].description;
+            document.getElementById("more-info").textContent = translations[lang].moreInfo;
+            document.getElementById("text-vi").textContent = translations[lang].langVi;
+            document.getElementById("text-en").textContent = translations[lang].langEn;
+            updateDate(lang);
+        }
+    </script>
+
+</body>
+
+    <style>
+    /* Đặt một lớp cha để cô lập phạm vi CSS */
+    .custom-navbar-container {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Thanh menu ngang */
+    .custom-navbar {
+        background: black;
+        display: flex;
+        justify-content: center;
+        padding: 15px 0;
+    }
+
+    .custom-navbar ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+    }
+
+    .custom-navbar ul li {
+        position: relative;
+        padding: 0 15px;
+    }
+
+    .custom-navbar ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 12px 20px;
+        display: block;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .custom-navbar ul li a:hover {
+        background: #0056b3;
+    }
+
+    /* Dropdown menu */
+    .custom-dropdown {
+        position: absolute;
+        background: black;
+        top: 100%;
+        left: 0;
+        width: 200px;
+        z-index: 1000;
+        padding: 10px 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .custom-dropdown li {
+        width: 100%;
+    }
+
+    .custom-dropdown li a {
+        padding: 10px;
+        display: block;
+        color: white;
+        text-align: left;
+    }
+
+    .custom-dropdown li a:hover {
+        color: #ffcc00;
+    }
+
+    .custom-navbar ul li:hover .custom-dropdown {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Thanh tìm kiếm */
+    .custom-search-wrapper {
+        background-color: #001f3f;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .custom-search-container {
+        position: relative;
+        width: 50%;
+        max-width: 400px;
+    }
+
+    .custom-search-input {
+        width: 100%;
+        padding: 10px 40px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+    }
+
+    .custom-search-button {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .custom-search-dropdown {
+        background: white;
+        max-width: 400px;
+        border-radius: 10px;
+        display: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .custom-search-dropdown a {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-decoration: none;
+        color: black;
+    }
+
+    .custom-search-dropdown a:hover {
+        background: #f1f1f1;
+    }
+
+    .custom-search-highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+</style>
+
+<div class="custom-navbar-container">
+    <!-- Thanh menu -->
+    <nav class="custom-navbar">
+        <ul>
+             <li><a href="https://baolucmang.github.io/12a12.nhomphongsu/">TRANG CHỦ</a></li>
+             <li><a href="https://baolucmang.github.io/aboutus/">VỀ CHÚNG TÔI</a></li>
+            <li>
+                <a href="https://baolucmang.github.io/bongtoimangxahoi/">BẠO LỰC MẠNG ▼</a>
+                <ul class="custom-dropdown">
+                    <li><a href="https://baolucmang.github.io/bongtoimangxahoi/">Bóng tối mạng xã hội: Câu chuyện về bạo lực từ xa</a></li>
+                    <li><a href="https://baolucmang.github.io/dinhnghia/">Định nghĩa</a></li>
+                    <li><a href="#">Thống kê</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="https://baolucmang.github.io/nguyennhan/">NGUYÊN NHÂN ▼</a>
+                <ul class="custom-dropdown">
+                    <li><a href="https://baolucmang.github.io/nguyennhan/">Mặt Nạ Kẻ Tấn Công</a></li>
+                    <li><a href="https://baolucmang.github.io/nguyennhan/">Đặc điểm của mạng xã hội</a></li>
+                    <li><a href="https://baolucmang.github.io/nguyennhan/">Góc nhìn của “người qua đường”</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="https://baolucmang.github.io/hauqua/">HẬU QUẢ ▼</a>
+                <ul class="custom-dropdown">
+                    <li><a href="https://baolucmang.github.io/hauqua/">Đối với nạn nhân</a></li>
+                    <li><a href="https://baolucmang.github.io/hauqua/">Đối với kẻ bắt nạt</a></li>
+                    <li><a href="https://baolucmang.github.io/hauqua/">Đối với xã hội</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="https://baolucmang.github.io/giaiphap/">GIẢI PHÁP ▼</a>
+                <ul class="custom-dropdown">
+                    <li><a href="https://baolucmang.github.io/giaiphap/">Giải pháp phòng tránh bạo lực mạng</a></li>
+                    <li><a href="https://baolucmang.github.io/giaiphap/">Giải pháp khi bạo lực mạng xảy ra</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="https://baolucmang.github.io/webphu6/">LỜI KẾT ▼</a>
+                <ul class="custom-dropdown">
+                    <li><a href="https://baolucmang.github.io/webphu6/">Kết luận</a></li>
+                    <li><a href="https://baolucmang.github.io/webphu6/">Thông điệp</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Thanh tìm kiếm -->
+    <div class="custom-search-wrapper">
+        <div class="custom-search-container">
+            <input type="text" id="custom-search-input" placeholder="Search..." class="custom-search-input">
+            <button class="custom-search-button">
+                <span class="material-icons">🔍</span>
+            </button>
+            <div class="custom-search-dropdown" id="custom-search-dropdown"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const searchData = [
+        { text: "Bóng Tối Mạng Xã Hội: Câu Chuyện Về Bạo Lực Từ Xa", url: "https://baolucmang.github.io/bongtoimangxahoi/" },
+            { text: "Bạo Lực Mạng", url: "https://baolucmang.github.io/dinhnghia/" },
+            { text: "Mặt Nạ Kẻ Tấn Công: Danh tính 'anh hùng' bàn phím", url: "https://baolucmang.github.io/nguyennhan/" },
+            { text: "Nguyên nhân", url: "https://baolucmang.github.io/nguyennhan/" },
+            { text: "Đặc điểm của mạng xã hội", url: "https://baolucmang.github.io/nguyennhan/" },
+            { text: "Góc nhìn của người qua đường", url: "https://baolucmang.github.io/nguyennhan/" },
+            { text: "Hậu quả", url: "https://baolucmang.github.io/hauqua/" },
+            { text: "Giải pháp phòng tránh bạo lực mạng", url: "https://baolucmang.github.io/giaiphap/" },
+            { text: "Giải pháp khi bạo lực mạng xảy ra", url: "https://baolucmang.github.io/giaiphap/" },
+            { text: "Trách nhiệm pháp lý", url: "https://baolucmang.github.io/giaiphap/" },
+            { text: "Nhận diện và hỗ trợ nạn nhân", url: "https://baolucmang.github.io/giaiphap/" },
+            { text: "Kết luận", url: "https://baolucmang.github.io/webphu6/" },
+            { text: "Giới thiệu về chúng tôi", url: "https://baolucmang.github.io/aboutus/" },
+        ];
+
+    document.getElementById('custom-search-input').addEventListener('input', function() {
+        let query = this.value.trim().toLowerCase();
+        let resultsBox = document.getElementById('custom-search-dropdown');
+        resultsBox.innerHTML = '';
+
+        if (query.length > 0) {
+            let results = searchData.filter(item => item.text.toLowerCase().includes(query));
+
+            if (results.length > 0) {
+                results.forEach(result => {
+                    let highlighted = result.text.replace(new RegExp(query, 'gi'), match => `<span class='custom-search-highlight'>${match}</span>`);
+                    let link = document.createElement('a');
+                    link.href = result.url;
+                    link.innerHTML = highlighted;
+                    resultsBox.appendChild(link);
+                });
+                resultsBox.style.display = 'block';
+            } else {
+                resultsBox.style.display = 'none';
+            }
+        } else {
+            resultsBox.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!document.querySelector('.custom-search-container').contains(event.target)) {
+            document.getElementById('custom-search-dropdown').style.display = 'none';
+        }
+    });
+</script>
+
+<style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .full-width-section {
+            background-color: #2c3e50; /* Xanh tím than */
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            width: 100vw; /* Chiều rộng toàn màn hình */
+            position: relative;
+        }
+        .full-width-section img {
+            display: block;
+            margin: 20px auto;
+            max-width: 580px; /* Giới hạn kích thước ảnh */
+            height: auto;
+        }
+    </style>
+    <div class="full-width-section">
+    <img alt="Không có mô tả." class="x4ju7c5 xt7dq6l x193iq5w x14atkfc" src="https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/476295071_667171712319420_5440691629869751350_n.jpg?_nc_cat=101&amp;ccb=1-7&amp;_nc_sid=9f807c&amp;_nc_ohc=fRTXaYOr5iIQ7kNvgHiJN0-&amp;_nc_oc=Adi4p6YE-lIoN6JvCAS7qRaLd0SARwheLpBgkqBEWnE32Ttel5zNnMP1E34697N90ezivGzTI7K8CjAXmZmnT8WZ&amp;_nc_zt=23&amp;_nc_ht=scontent.fhan2-3.fna&amp;oh=03_Q7cD1gGoqsDIEXjRCAPMQQhYhJvHrfcuFgOoIca7wkEvhkKNGQ&amp;oe=67D30D25">
+</div>
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f8f8f8;
+        }
+        .main-container {
+            display: flex;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+         .container {
+            min-width: 200px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 2;
+        }
+        .header {
+            background: darkred;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slider-controls button {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 18px;
+            margin: 0 5px;
+        }
+        .slider-controls button:hover {
+            background: white;
+        }
+        .main-content {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .main-article {
+            flex: 2;
+            position: relative;
+        }
+        .main-article img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .main-article .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(200, 200, 200, 0.8); /* Màu xám nhạt */
+            padding: 15px;
+            border-radius: 0 0 5px 5px;
+        }
+        .main-article .article-title {
+            font-size: 20px;
+            font-weight: bold;
+            background: white;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .main-article .article-title a {
+            text-decoration: none;
+            color: black;
+        }
+        .main-article .article-title:hover {
+            background: darkblue;
+        }
+        .main-article .article-title:hover a {
+            color: white;
+        }
+        .article-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .article-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .article-item img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .article-content {
+            flex: 1;
+        }
+        .article-title-small {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .article-title-small a {
+            text-decoration: none;
+            color: #333;
+        }
+        .article-title-small a:hover {
+            color: darkred;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Phần chứa danh sách sự kiện */
+        .event-container {
+            min-width: 350px;
+            background: white;
+            padding: 20px;
+            flex: 1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tiêu đề "SỰ KIỆN" */
+        .event-header {
+            font-size: 18px;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        /* Dòng timeline bên trái */
+        .event-list {
+            border-left: 4px solid #ddd;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        /* Mỗi mục sự kiện */
+        .event-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* Chấm tròn đánh dấu */
+        .event-item::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: #ddd;
+            border-radius: 50%;
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            transition: 0.3s;
+        }
+
+        /* Hiệu ứng khi di chuột vào chấm tròn */
+        .event-item:hover::before {
+            background: blue; /* Đổi màu sang xanh dương */
+        }
+
+        /* Ngày tháng */
+        .event-date {
+            font-size: 14px;
+            color: gray;
+            font-weight: bold;
+        }
+
+        /* Tiêu đề sự kiện */
+        .event-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+            line-height: 1.4;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        /* Hiệu ứng khi di chuột vào tiêu đề */
+        .event-title:hover {
+            color: red; /* Đổi màu sang đỏ */
+        }
+    </style>
+</head>
+
+<div class="main-container">
+  <div class="container">
+    <div class="header">
+        Các bài báo về Bạo lực mạng
+        <div class="slider-controls">
+            <button onclick="prevPage()">◀</button>
+            <button onclick="nextPage()">▶</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Bài viết chính -->
+        <div class="main-article">
+            <img id="main-img" src="https://via.placeholder.com/600x300" alt="Bài viết chính">
+            <div class="overlay">
+                <div class="article-title">
+                    <a id="main-link" href="#">Bạo lực mạng: Nguy cơ và biện pháp ngăn chặn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Danh sách bài báo nhỏ -->
+        <div class="article-list" id="article-list">
+            <!-- Các bài viết sẽ được render động ở đây -->
+        </div>
+    </div>
+  </div>  
+
+<script>
+    const articles = [
+        [
+            { img: "https://dothi.reatimes.vn/uploads/images/2024/03/27/bao-luc-mang-voi-tre-em-1711528946.jpg", title: "Trung bình có 1/6 thanh thiếu niên trên thế giới từng bị bạo lực online", link: "https://dothi.reatimes.vn/trung-binh-co-16-thanh-thieu-nien-tren-the-gioi-tung-bi-bao-luc-online-mot-bang-cua-my-cam-tre-em-duoi-14-tuoi-dung-mang-xa-hoi-2079.html" },
+            { img: "https://static.ybox.vn/2021/8/3/1629256849880-df0e336bdea3a1d4e35e83486653468f.jpg", title: "Góc Nhìn Tâm Lý Về Cyberbullying", link: "https://r.search.yahoo.com/_ylt=AwrPrNdClqtnUAIA0DZrUwx.;_ylu=Y29sbwNzZzMEcG9zAzYEdnRpZAMEc2VjA3Ny/RV=2/RE=1740507970/RO=10/RU=https%3a%2f%2fybox.vn%2fgia-vi%2ftam-ly-goc-nhin-tam-ly-ve-cyberbullying-611c7f45af41467401ff09d0/RK=2/RS=yjmsm2Bfc73yVY_qXboJPiIsTkE-" },
+            { img: "https://image.tienphong.vn/w1000/Uploaded/2025/kpictqvp/2024_11_28/1-8276.jpeg", title: "Nên làm gì khi bị bạo lực mạng?", link: "https://r.search.yahoo.com/_ylt=AwrKB0vZlqtnWgIAg79rUwx.;_ylu=Y29sbwNzZzMEcG9zAzYEdnRpZAMEc2VjA3Ny/RV=2/RE=1740508121/RO=10/RU=https%3a%2f%2ftienphong.vn%2fnen-lam-gi-khi-bi-bao-luc-mang-post1695537.tpo/RK=2/RS=xAU70jfdyKP0dTj4s1sdIfvsFNI-" },
+            { img: "https://cdn.baoquocte.vn/stores/news_dataimages/2024/012024/30/17/bai-2-phong-chong-bao-luc-mang-bao-ve-quyen-con-nguoi-20240130173756.jpg?rt=20240130173800", title: "Phòng, chống bạo lực mạng - bảo vệ quyền con người", link: "https://r.search.yahoo.com/_ylt=AwrKB0vZlqtnWgIAgb9rUwx.;_ylu=Y29sbwNzZzMEcG9zAzQEdnRpZAMEc2VjA3Ny/RV=2/RE=1740508121/RO=10/RU=https%3a%2f%2fbaomoi.com%2fbai-2-phong-chong-bao-luc-mang-bao-ve-quyen-con-nguoi-c48220380.epi/RK=2/RS=2E75thtfUrc3plWE.HQwU2.6ECY-" },
+            { img: "https://image.tienphong.vn/w1966/Uploaded/2025/ofh-fdazstgk/2023_08_03/photo-18-1505793701274-6822.jpeg", title: "Lời cầu cứu 'Tôi kiệt sức nhưng không ai lắng nghe' và hiểm họa bạo lực mạng", link: "https://r.search.yahoo.com/_ylt=AwrKB0t8k6tnZwIATkprUwx.;_ylu=Y29sbwNzZzMEcG9zAzIEdnRpZAMEc2VjA3Ny/RV=2/RE=1740507260/RO=10/RU=https%3a%2f%2ftienphong.vn%2floi-cau-cuu-toi-kiet-suc-nhung-khong-ai-lang-nghe-va-hiem-hoa-bao-luc-mang-post1556823.tpo/RK=2/RS=TNh1z90FfcUpmakkhNyKJhFOBx0-" }
+        ],
+        [
+            { img: "https://tse4.mm.bing.net/th?id=OIP.r0Gom2sQOrBufJYdSudt5AHaFL&pid=Api&P=0&h=180", title: "Mặt tối của mạng xã hội - Hiểm họa khôn lường", link: "https://r.search.yahoo.com/_ylt=AwrKAywck6tndQIAH89rUwx.;_ylu=Y29sbwNzZzMEcG9zAzMEdnRpZAMEc2VjA3Ny/RV=2/RE=1740507164/RO=10/RU=https%3a%2f%2fhanoimoi.vn%2fmat-toi-cua-mang-xa-hoi-hiem-hoa-khon-luong-468706.html/RK=2/RS=uJty8gGF_vvP37RXzyOum7MC2lo-" },
+            { img: "https://cdn.thuvienphapluat.vn//phap-luat/2022-2/TT/141022/khong-gian-mang.jpg", title: "Những hành vi nào vi phạm pháp luật về không gian mạng?", link: "https://r.search.yahoo.com/_ylt=AwrKAyyWkqtnaAIAeL9rUwx.;_ylu=Y29sbwNzZzMEcG9zAzIEdnRpZAMEc2VjA3Ny/RV=2/RE=1740507031/RO=10/RU=https%3a%2f%2fthuvienphapluat.vn%2fphap-luat%2fnhung-hanh-vi-nao-vi-pham-phap-luat-ve-khong-gian-mang-tre-em-duoc-phap-luat-bao-ve-tren-khong-gian-547591-41228.html/RK=2/RS=prXM140dq2SSQXo6EuNkPrNq9.g-" },
+            { img: "http://static.ybox.vn/2018/4/2/23b8c106-3650-11e8-9b1a-56c566ee3692.jpg", title: "Giải pháp giúp ngăn chặn bạo lực mạng", link: "https://r.search.yahoo.com/_ylt=AwrPqkOViqtnnwIAN6BrUwx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1740504981/RO=10/RU=https%3a%2f%2faccgroup.vn%2fgiai-phap-bao-luc-mang/RK=2/RS=sKJOgc3Pk4NdLamgrqddTs8zI6E-" },
+            { img: "https://cdn.giaoducthoidai.vn/images/01d9bdbe00638231f04160fb364539744be6c62b4a1489eb063223a8d574c7c9e7d8f585d61f36e7dae10f36551999073640903a586691b8be034408182db6cd/ngan-ngua-bao-luc-hoc-duong-1.png.webp", title: "Vai trò của phụ huynh", link: "https://r.search.yahoo.com/_ylt=AwrKB0sOi6tnWgIACCtrUwx.;_ylu=Y29sbwNzZzMEcG9zAzIEdnRpZAMEc2VjA3Ny/RV=2/RE=1740505103/RO=10/RU=https%3a%2f%2fgiaoducthoidai.vn%2fngan-ngua-bao-luc-hoc-duong-trach-nhiem-cua-cha-me-post711405.html/RK=2/RS=Hh5dOyJ2j.Uem0GQI5b241cm2Sk-" },
+            { img: "https://bna.1cdn.vn/2023/02/21/uploaded-tienhungbna-2023_02_21-_bna-hs-6287.jpg", title: "Tiềm ẩn bạo lực học đường từ không gian mạng” ảnh hưởng xấu tới môi trường học đường", link: "https://baonghean.vn/tiem-an-bao-luc-hoc-duong-tu-khong-gian-mang-10250757.html" }
+        ]
+    ];
+
+
+    let currentPage = 0;
+
+    function renderArticles() {
+        const list = document.getElementById("article-list");
+        list.innerHTML = "";
+        articles[currentPage].forEach(article => {
+            list.innerHTML += `
+                <div class="article-item">
+                    <img src="${article.img}" alt="Bài viết">
+                    <div class="article-content">
+                        <div class="article-title-small"><a href="${article.link}">${article.title}</a></div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Cập nhật bài viết chính
+        document.getElementById("main-img").src = articles[currentPage][0].img;
+        document.getElementById("main-link").href = articles[currentPage][0].link;
+        document.getElementById("main-link").innerText = articles[currentPage][0].title;
+    }
+
+    function nextPage() {
+        if (currentPage < articles.length - 1) {
+            currentPage++;
+            renderArticles();
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 0) {
+            currentPage--;
+            renderArticles(); 
+        }
+    }
+
+    // Hiển thị trang đầu tiên khi tải trang
+    renderArticles();
+</script>
+
+    <div class="event-container">
+       <div class="event-header">Bài viết có liên quan</div>
+         <div class="event-list">
+            <div class="event-item">
+                <div class="event-date">Thứ bảy - 26/10/2019</div>
+                <a href="https://tuoitre.tdmu.edu.vn/danh-muc/ren-luyen-dao-duc-tac-phong/infographic-van-hoa-ung-xu-tren-khong-gian-mang" class="event-title">Infographic – Văn hóa ứng xử trên không gian mạng</a>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date">Thứ bảy - 06/11/2021</div>
+                <a href="https://dantri.com.vn/giao-duc/van-nan-bat-nat-qua-mang-va-nhung-dieu-can-biet-20211105231849420.htm" class="event-title">Vấn nạn bắt nạt qua mạng và những điều cần biết
+</a>
+            </div>
+
+            <div class="event-item">
+                <div class="event-date">Thứ năm - 29/02/2024</div>
+                <a href="https://bantuyengiao.cantho.gov.vn/vi/news/tai-lieu-nghien-cuu-hoc-tap-bao-cao-vien/hiem-hoa-tu-bao-luc-mang-1722.html" class="event-title">Hiểm họa từ bạo lực mạng</a>
+            </div>
+         </div>
+       </div>
+    </div>   
+</div>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chia sẻ câu chuyện về bạo lực mạng</title>
+    <style>
+        .cyberbullying-form-container {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .cyberbullying-form-container .container {
+            display: flex;
+            width: 80%;
+            max-width: 900px;
+            gap: 20px;
+        }
+        .cyberbullying-form-container .form-container, 
+        .cyberbullying-form-container .story-container {
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            text-align: left;
+        }
+        .cyberbullying-form-container .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        .cyberbullying-form-container .form-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .cyberbullying-form-container .form-group input, 
+        .cyberbullying-form-container .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .cyberbullying-form-container .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+        .cyberbullying-form-container .submit-btn {
+            width: 100%;
+            background-color: #c44d34;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .cyberbullying-form-container .submit-btn:hover {
+            background-color: #a63e28;
+        }
+        .cyberbullying-form-container .story-content {
+            font-size: 14px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        .cyberbullying-form-container .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .cyberbullying-form-container .nav-buttons button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .cyberbullying-form-container .nav-buttons button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="cyberbullying-form-container">
+        <div class="container">
+            <div class="form-container">
+                <form id="storyForm">
+                    <div class="form-group">
+                        <label>Tên của bạn</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input type="tel" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Chia sẻ câu chuyện của bạn về bạo lực mạng</label>
+                        <textarea name="story" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Gửi</button>
+                </form>
+            </div>
+            <div class="story-container">
+                <div class="story-content" id="storyDisplay">Không có câu chuyện nào.</div>
+                <div class="nav-buttons">
+                    <button id="prevStory">⬅ Trước</button>
+                    <button id="nextStory">Sau ➡</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let stories = [];
+        let currentIndex = 0;
+
+        document.getElementById("storyForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const storyInput = this.story.value.trim();
+            if (storyInput) {
+                stories.push(storyInput);
+                this.reset();
+                updateStoryDisplay();
+            }
+        });
+
+        function updateStoryDisplay() {
+            if (stories.length > 0) {
+                document.getElementById("storyDisplay").textContent = stories[currentIndex];
+            } else {
+                document.getElementById("storyDisplay").textContent = "Không có câu chuyện nào.";
+            }
+        }
+
+        document.getElementById("prevStory").addEventListener("click", function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateStoryDisplay();
+            }
+        });
+
+        document.getElementById("nextStory").addEventListener("click", function() {
+            if (currentIndex < stories.length - 1) {
+                currentIndex++;
+                updateStoryDisplay();
+            }
+        });
+    </script>
+</body>
+</html>
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            
+        }
+
+        /* Thiết lập slider */
+        .slider-container {
+            background-color: #191970; 
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+            position: relative;
+            padding: 50px 0;
+            text-align: center;
+            margin: auto;
+        }
+
+        .slider {
+            display: flex;
+            width: 600%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 16.66%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 250px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        /* Dấu chấm điều hướng */
+        .dots {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .dot.active {
+            opacity: 1;
+            background-color: yellow;
+        }
+    </style>
+<body>
+
+<div class="slider-container">
+    <div class="slider" id="slider">
+        <div class="slide"><img src="https://i.ytimg.com/vi/kUJsTn9Vnjg/maxresdefault.jpg" alt="Cyberbullying 1"></div>
+        <div class="slide"><img src="https://i.ytimg.com/vi/jiV9JspXo1E/maxresdefault.jpg" alt="Cyberbullying 2"></div>
+        <div class="slide"><img src="https://tuoitre.tdmu.edu.vn/img/ckeditor/images/12(1).png" alt="Cyberbullying 3"></div>
+        <div class="slide"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ffb4cc159644491.63a2d8025f683.png" alt="Cyberbullying 4"></div>
+        <div class="slide"><img src="https://i.ytimg.com/vi/5CroYTf5iNs/maxresdefault.jpg" alt="Cyberbullying 5"></div>
+        <div class="slide"><img src="https://luatkhoiluan.com/upload/tintuc/images/anh_bai_tay_chay_3.jpg" alt="Cyberbullying 6"></div>
+    </div>
+    <div class="dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+        <span class="dot" onclick="goToSlide(4)"></span>
+        <span class="dot" onclick="goToSlide(5)"></span>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const slider = document.getElementById("slider");
+    const dots = document.querySelectorAll(".dot");
+    let interval;
+
+    function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * (100 / totalSlides)}%)`;
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex].classList.add("active");
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+    }
+
+    function startAutoSlide() {
+        interval = setInterval(nextSlide, 3000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
+
+    slider.addEventListener("mouseenter", stopAutoSlide);
+    slider.addEventListener("mouseleave", startAutoSlide);
+
+    startAutoSlide();
+</script>
+</body>
+
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 90vh; 
+            background-color: #191970;
+        }
+
+        iframe {
+            width: 60%;  /* Giảm kích thước video */
+            max-width: 600px; /* Giới hạn tối đa */
+            height: auto; /* Giữ tỉ lệ */
+            aspect-ratio: 16 / 9; /* Đảm bảo tỉ lệ chuẩn */
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container-b {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f4f4f4;
+            flex: 3;
+            width: 100vw;
+            margin: 20px auto;
+        }
+        .main-container-a {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            margin-right: 20px;
+            text-align: center;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        .quote {
+            max-width: 250px;
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid #ff6b6b;
+            padding-left: 10px;
+            flex: 2;
+            margin: auto;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+        }
+        .source {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+</style>
+<div class="main-container-a">
+    <div class="container-b">
+        <table class="table">
+            <tr>
+                <th>Loại Hành Vi</th>
+                <th>Tỷ lệ (%)</th>
+            </tr>
+            <tr>
+                <td>Phát ngôn gây thù ghét</td>
+                <td>78%</td>
+            </tr>
+            <tr>
+                <td>Nói xấu, phỉ báng, bôi nhọ danh dự</td>
+                <td>61.7%</td>
+            </tr>
+            <tr>
+                <td>Vu khống, bịa đặt thông tin</td>
+                <td>46.6%</td>
+            </tr>
+        </table>
+        <div class="quote">
+            "Bạo lực mạng ngày càng gia tăng và ảnh hưởng tiêu cực đến xã hội. Chúng ta cần nâng cao ý thức và bảo vệ bản thân trước các mối đe dọa trực tuyến." - TS. Trần Hoàng Nam
+        </div>
+    </div>
+</div>
+<p class="source">Nguồn: Khảo sát năm 2023 của Chương trình nghiên cứu Internet và Xã hội (VPIS)</p>
+
+<body>
+
+    <div class="video-container">
+        <iframe 
+            src="https://drive.google.com/file/d/166gQs_vQZYjJPtqGqINbMr4MGc9JyJVp/preview" 
+            allow="autoplay" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</body>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+            margin: 0;
+        }
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #ffc0cb, #ffffff);
+            color: white;
+            padding: 20px 40px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            background-color: #ffffff;
+        }
+        .quote {
+            font-size: 22px;
+            font-weight: 600;
+            flex: 2;
+        }
+        .cta-button {
+            background: white;
+            color: #ff4b7b;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            border: 2px solid white;
+        }
+        .cta-button:hover {
+            background: #ff4b7b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="quote">Hãy biến Internet trở thành nơi an toàn cho mọi người dùng!</div>
+        <a href="#" class="cta-button">Hành động ngay!</a>
+    </div>
+</body>
+
+<style>
+        /* Thiết lập chung cho footer */
+        .site-footer {
+            background-color: #2c2f34; /* Nền màu xám */
+            color: #ffffff; /* Màu chữ trắng */
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            width: 30%;
+            padding: 10px;
+            text-align: left;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer-column p, .footer-column a {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            border-top: 1px solid #444;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Cột 1: Thông tin tổ chức -->
+        <div class="footer-column">
+            <h3>NHÓM PHÓNG SỰ BẠO LỰC MẠNG A12 K49 TRƯỜNG THPT KIM LIÊN</h3>
+            <h4>Tên các thành viên trong nhóm:</h4>
+                <ul>Nghiêm Hà An (nội dung)</ul>
+           <ul>Hoàng Vân Anh (nội dung)</ul>
+<ul>Vũ Nguyễn Ngọc Anh (khung code)</ul>
+<ul>Trần Vy Hảo (nhóm trưởng)</ul>
+<ul>Nguyễn Hồng Ngọc (nội dung)</ul>
+<ul>Nguyễn Thanh Thảo (khung code)<ul>
+        </div>
+
+        <!-- Cột 2: Thông tin liên hệ -->
+        <div class="footer-column">
+            <h3>LIÊN HỆ</h3>
+            <p>📞 Liên hệ đường dây nóng hỗ trợ nạn nhân của bạo lực mạng (CyberHotline): <strong>0343332112</strong></p>
+            <p>📞 SĐT nhóm trưởng Trần Vy Hảo: <strong>0818835477</strong></p>
+  
+        </div>
+
+        <!-- Cột 3: Thống kê truy cập -->
+        <div class="footer-column">
+            <h3>THỐNG KÊ TRUY CẬP</h3>
+            <p>👁️ Lượt xem hôm nay: <strong id="views-today">0</strong></p>
+            <p>📊 Tổng truy cập: <strong id="total-visits">0</strong></p>
+            <p>👁️ Lượt xem trang: <strong id="page-views">0</strong></p>
+        </div>
+    </div>
+
+    <!-- Bản quyền -->
+    <div class="footer-bottom">
+        Bản quyền © 2025 NHÓM PHÓNG SỰ BẠO LỰC MẠNG A12 K49
+    </div>
+</footer>
+
+<!-- Nút quay lại đầu trang -->
+<button class="back-to-top" onclick="scrollToTop()">▲ Lên đầu trang</button>
+
+<script>
+    function updatePageViews() {
+        let today = new Date().toDateString(); // Ngày hiện tại
+        let storedDate = localStorage.getItem("lastVisitDate"); // Lần truy cập cuối
+        let viewsToday = parseInt(localStorage.getItem("viewsToday")) || 0;
+        let totalVisits = parseInt(localStorage.getItem("totalVisits")) || 0;
+        let pageViews = parseInt(localStorage.getItem("pageViews")) || 0;
+
+        if (storedDate !== today) {
+            // Nếu ngày đã thay đổi, reset "Lượt xem hôm nay"
+            viewsToday = 0;
+            localStorage.setItem("lastVisitDate", today);
+        }
+
+        viewsToday++; // Tăng lượt xem hôm nay
+        totalVisits++; // Tăng tổng truy cập
+        pageViews++; // Tăng tổng lượt xem trang
+
+        // Lưu vào localStorage
+        localStorage.setItem("viewsToday", viewsToday);
+        localStorage.setItem("totalVisits", totalVisits);
+        localStorage.setItem("pageViews", pageViews);
+
+        // Cập nhật UI
+        document.getElementById("views-today").innerText = viewsToday;
+        document.getElementById("total-visits").innerText = totalVisits;
+        document.getElementById("page-views").innerText = pageViews;
+    }
+
+    // Gọi hàm cập nhật khi trang được tải
+    updatePageViews();
+
+    // Hiển thị nút quay lại đầu trang khi cuộn xuống
+    window.onscroll = function() {
+        var btn = document.querySelector(".back-to-top");
+        if (document.documentElement.scrollTop > 200) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+
+    // Hàm cuộn lên đầu trang
+    function scrollToTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
+
+</body>
+
+</html>
